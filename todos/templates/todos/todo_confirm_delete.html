@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+    Confirmar Exclusão
+{% endblock page_title %}
+
+{% block content %}
+    <h1>Excluir Tarefa?</h1>
+    <p>Deseja confirma a exclusão de <b>{{todo.title}}</b>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
+        <a href="{% url 'todo_list' %}" class="btn btn-outline-primary btn-sm">Cancelar</a>
+    </form>
+{% endblock content %}
